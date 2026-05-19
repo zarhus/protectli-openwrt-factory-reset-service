@@ -15,15 +15,13 @@ check_supported_series() {
       logger -t "$LOGTAG" "V1xxx series does not support factory reset via reset button"
       exit 1
       ;;
-    "VP2420")
-      if [[ "$BIOS_VERSION" == *coreboot* ]]; then
-        logger -t "$LOGTAG" "Factory reset on $SYSTEM_VENDOR $SYSTEM_MODEL is currently not supported with coreboot"
-        exit 1
-      fi
-      ;;
-    "VP2430" | "VP2440" | "VP4630" | "VP4650" | "VP4651" | "VP4670" | "VP6650" | "VP6670")
+    "VP2420" | "VP2430" | "VP2440" | "VP6650" | "VP6670")
       PORT=0xa00    # I/O port address
       MASK=0x04     # Bit 2: 0 = pressed, 1 = not pressed
+      ;;
+    "VP4630" | "VP4650" | "VP4651" | "VP4670")
+      PORT=0xa07
+      MASK=0x01
       ;;
     *)
       logger -t "$LOGTAG" "Board model $SYSTEM_MODEL is currently not supported"
