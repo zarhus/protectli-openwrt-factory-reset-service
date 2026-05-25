@@ -12,7 +12,7 @@ define Package/reset-button
   SECTION:=base
   CATEGORY:=Base system
   TITLE:=Factory reset button handler for Protectli hardware
-  DEPENDS:=+fstools
+  DEPENDS:=+fstools +dmidecode
   DEFAULT:=y
 endef
 
