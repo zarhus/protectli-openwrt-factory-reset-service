@@ -15,7 +15,7 @@ check_supported_series() {
       logger -t "$LOGTAG" "V1xxx series does not support factory reset via reset button"
       exit 1
       ;;
-    "VP2420" | "VP2430" | "VP2440" | "VP6650" | "VP6670")
+    "VP2410" | "VP2420" | "VP2430" | "VP2440" | "VP6650" | "VP6670")
       PORT=0xa00    # I/O port address
       MASK=0x04     # Bit 2: 0 = pressed, 1 = not pressed
       ;;
